@@ -4,7 +4,6 @@
 
 [![Crystal](https://img.shields.io/badge/crystal-%3E%3D1.19.1-black?logo=crystal)](https://crystal-lang.org)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![CI](https://github.com/torkay/generic-scraper/actions/workflows/ci.yml/badge.svg)](https://github.com/torkay/generic-scraper/actions)
 
 A high-performance, plugin-based web scraping framework written in Crystal. Domain-agnostic by design; scrape vehicles, real estate, jobs, or anything else by writing a simple vendor plugin.
 
