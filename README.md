@@ -6,7 +6,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![CI](https://github.com/torkay/generic-scraper/actions/workflows/ci.yml/badge.svg)](https://github.com/torkay/generic-scraper/actions)
 
-A high-performance, plugin-based web scraping framework written in Crystal. Domain-agnostic by design — scrape vehicles, real estate, jobs, or anything else by writing a simple vendor plugin.
+A high-performance, plugin-based web scraping framework written in Crystal. Domain-agnostic by design; scrape vehicles, real estate, jobs, or anything else by writing a simple vendor plugin.
 
 ![Generic Scraper Framework Architecture](assets/architecture.png)
 
@@ -129,7 +129,7 @@ class MyVendor < Scraper::VendorAdapter
 end
 ```
 
-Register it in your config and you're done. That's it — under 30 lines.
+Register it in your config and you're done. That's it; under 30 lines.
 
 ## Example Configs
 
