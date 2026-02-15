@@ -1,4 +1,4 @@
-# Generic Scraper Framework
+# Quicker Generic Scraper Framework
 
 > 10x faster web scraping. Build in minutes. Deploy as single binary.
 
