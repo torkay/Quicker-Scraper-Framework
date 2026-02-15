@@ -8,6 +8,8 @@
 
 A high-performance, plugin-based web scraping framework written in Crystal. Domain-agnostic by design — scrape vehicles, real estate, jobs, or anything else by writing a simple vendor plugin.
 
+![Generic Scraper Framework Architecture](assets/architecture.png)
+
 ## Features
 
 - **Plugin-based vendors** — Add a new data source in <100 lines of code
