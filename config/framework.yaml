@@ -1,0 +1,16 @@
+global:
+  timeout_seconds: 30
+  user_agent: "GenericScraper/1.0 (+https://github.com/torkay/generic-scraper)"
+  max_concurrent_requests: 10
+  retry_max_attempts: 3
+  retry_backoff_seconds: 2
+
+output:
+  format: json
+  path: ./output/
+  compression: none
+
+logging:
+  level: info
+  format: json
+  stdout: true

@@ -1,0 +1,47 @@
+# Example: Real estate property listings
+# Scrape rental and sale listings
+
+vendors:
+  realestate_example:
+    enabled: true
+    base_url: "https://www.example-property.com.au/buy"
+    rate_limit:
+      requests_per_second: 1
+      burst: 3
+    selectors:
+      listing: ".property-card"
+      title: "h2.property-title"
+      price: ".property-price"
+      link: "a.property-link@href"
+      image: "img.property-photo@src"
+    fields:
+      bedrooms: ".bed-count"
+      bathrooms: ".bath-count"
+      parking: ".car-count"
+      property_type: ".property-type"
+      land_size: ".land-area"
+      suburb: ".suburb-name"
+      state: ".state-name"
+
+  domain_example:
+    enabled: true
+    base_url: "https://www.example-domain.com.au/rent"
+    rate_limit:
+      requests_per_second: 1
+    selectors:
+      listing: "[data-testid='listing']"
+      title: ".listing-title"
+      price: ".listing-price"
+      link: "a@href"
+    fields:
+      bedrooms: ".beds"
+      bathrooms: ".baths"
+      property_type: ".type"
+
+output:
+  format: csv
+  path: "output/properties.csv"
+
+scrape:
+  max_pages: 20
+  concurrency: 3

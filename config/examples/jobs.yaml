@@ -1,0 +1,45 @@
+# Example: Job posting aggregation
+# Scrape job listings from multiple boards
+
+vendors:
+  seek_example:
+    enabled: true
+    base_url: "https://www.example-jobs.com.au/jobs"
+    rate_limit:
+      requests_per_second: 2
+      burst: 5
+    selectors:
+      listing: "article.job-card"
+      title: "h3.job-title"
+      price: ".salary-range"
+      link: "a.job-link@href"
+    fields:
+      company: ".company-name"
+      location: ".job-location"
+      job_type: ".work-type"
+      category: ".classification"
+      posted_date: "time@datetime"
+      description_snippet: ".job-snippet"
+
+  indeed_example:
+    enabled: true
+    base_url: "https://www.example-indeed.com.au/jobs"
+    rate_limit:
+      requests_per_second: 1
+    selectors:
+      listing: ".job-result"
+      title: ".job-title"
+      price: ".salary"
+      link: "a@href"
+    fields:
+      company: ".company"
+      location: ".location"
+      job_type: ".type"
+
+output:
+  format: json
+  path: "output/jobs.json"
+
+scrape:
+  max_pages: 15
+  concurrency: 4

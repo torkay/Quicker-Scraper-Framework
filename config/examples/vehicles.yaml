@@ -1,0 +1,48 @@
+# Example: Vehicle listing aggregation
+# Scrape used car listings from multiple sources
+
+vendors:
+  carsales_example:
+    enabled: true
+    base_url: "https://www.example-cars.com.au/cars"
+    rate_limit:
+      requests_per_second: 2
+      burst: 5
+    selectors:
+      listing: ".listing-item"
+      title: "h2.listing-title"
+      price: ".price-amount"
+      link: "a.listing-link@href"
+      image: "img.main-photo@src"
+    fields:
+      make: ".vehicle-make"
+      model: ".vehicle-model"
+      year: ".vehicle-year"
+      mileage: ".odometer"
+      transmission: ".transmission-type"
+      fuel_type: ".fuel-type"
+      location: ".dealer-location"
+
+  autotrader_example:
+    enabled: true
+    base_url: "https://www.example-autos.com.au/search"
+    rate_limit:
+      requests_per_second: 1
+    selectors:
+      listing: "[data-testid='listing-card']"
+      title: ".listing-title"
+      price: ".listing-price"
+      link: "a@href"
+    fields:
+      make: ".car-make"
+      model: ".car-model"
+      year: ".car-year"
+      mileage: ".car-km"
+
+output:
+  format: json
+  path: "output/vehicles.json"
+
+scrape:
+  max_pages: 10
+  concurrency: 4

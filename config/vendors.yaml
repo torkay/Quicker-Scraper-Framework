@@ -1,0 +1,48 @@
+vendors:
+  grays:
+    base_url: "https://www.grays.com"
+    enabled: true
+    mode: ingest
+    rate_limit_rps: 1.2
+    freshness_hours: 48
+    timeout_seconds: 30
+    extraction_method: dom
+    pagination:
+      type: offset
+      param: page
+      start: 1
+      max_pages: 50
+    extraction_rules:
+      title: "h2.vehicle-title"
+      price: "span.price"
+      year: "span.year"
+      mileage: "span.mileage"
+      condition: "span.condition"
+      url: "a.vehicle-link[href]"
+    normalization_rules:
+      title: "title:trim"
+      price: "price:extract_price"
+      year: "year:trim"
+      mileage: "mileage:extract_number"
+
+  ebay:
+    base_url: "https://www.ebay.com.au"
+    enabled: true
+    mode: ingest
+    rate_limit_rps: 2.0
+    freshness_hours: 96
+    timeout_seconds: 30
+    extraction_method: dom
+    pagination:
+      type: offset
+      param: "_pgn"
+      start: 1
+      max_pages: 50
+    extraction_rules:
+      title: "div.s-item__title span"
+      price: "span.s-item__price"
+      url: "a.s-item__link[href]"
+      condition: "span.SECONDARY_INFO"
+    normalization_rules:
+      title: "title:trim"
+      price: "price:extract_price"
